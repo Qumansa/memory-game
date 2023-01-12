@@ -1,0 +1,35 @@
+@mixin hoverLink {
+	transition: color 0.15s;
+	@media (min-width: 992px) {
+		&:hover {
+			color: $black;
+		}
+
+		&:active {
+			opacity: 0.7;
+		}
+	}
+}
+
+@mixin hoverButton {
+	transition: color 0.15s, background-color 0.15s;
+	@media (min-width: 992px) {
+		&:hover {
+			color: $black;
+			background-color: $white;
+		}
+		&:active {
+			opacity: 0.7;
+		}
+	}
+}
+
+@mixin baseFontSize {
+	font-size: 1.8rem;
+	line-height: 2.2rem;
+}
+
+@mixin largeFontSize {
+	font-size: 3.4rem;
+	line-height: 4.2rem;
+}

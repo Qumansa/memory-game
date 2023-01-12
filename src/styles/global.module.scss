@@ -1,0 +1,33 @@
+@import './mixins';
+
+.sr-only {
+	position: absolute;
+
+	overflow: hidden;
+
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+
+	white-space: nowrap;
+
+	clip-path: inset(50%);
+	border: 0;
+}
+
+.section {
+	padding: 10rem 0;
+	&__title {
+		@include largeFontSize;
+
+		font-weight: 700;
+		text-align: center;
+	}
+}
+
+.container {
+	max-width: 100rem;
+	margin: 0 auto;
+	padding: 0 1.5rem;
+}
