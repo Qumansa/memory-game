@@ -1,6 +1,6 @@
-@import './mixins';
+@use './mixins';
 
-.sr-only {
+.srOnly {
 	position: absolute;
 
 	overflow: hidden;
@@ -16,10 +16,20 @@
 	border: 0;
 }
 
+.main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	height: 100vh;
+	min-height: 100vh;
+}
+
 .section {
 	padding: 10rem 0;
 	&__title {
-		@include largeFontSize;
+		@include mixins.largeFontSize();
 
 		font-weight: 700;
 		text-align: center;
