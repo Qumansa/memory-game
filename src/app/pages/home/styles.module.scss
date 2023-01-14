@@ -4,14 +4,29 @@
 	&__container {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
 	}
 
 	&__text {
-		@include mixins.largeFontSize();
+		&_withIndent {
+			text-indent: 5rem;
+		}
+
+		&_big {
+			@include mixins.largeFontSize();
+		}
+
+		&_center {
+			text-align: center;
+		}
+
+		&:not(:first-of-type) {
+			margin-top: 2rem;
+		}
 	}
 
 	&__link {
-		margin-top: 3rem;
+		user-select: none;
+		align-self: center;
+		margin-top: 5rem;
 	}
 }
