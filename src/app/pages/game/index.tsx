@@ -1,3 +1,5 @@
+import { Card } from './features/card';
+
 import global from '../../../styles/global.module.scss';
 import styles from './styles.module.scss';
 
@@ -10,7 +12,21 @@ export const Game = ({ difficulty }: GameProps) => {
 		<section className={styles.game}>
 			<div className={global.container}>
 				<h2 className={global.srOnly}>Игра</h2>
-				<p className={styles.game__difficulty}>Уровень сложности: {difficulty}</p>
+				{/* <p className={styles.game__difficulty}>Уровень сложности: {difficulty}</p> */}
+				<ul className={styles.cards}>
+					<Card />
+					<Card />
+					<Card />
+					<Card />
+					<Card />
+					<Card />
+					<Card />
+					<Card />
+					<Card />
+					<Card />
+					<Card />
+					<Card />
+				</ul>
 			</div>
 		</section>
 	);
