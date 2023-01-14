@@ -1,0 +1,17 @@
+@use '../../../styles/mixins.scss';
+
+.home {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__text {
+		@include mixins.largeFontSize();
+	}
+
+	&__link {
+		margin-top: 3rem;
+	}
+}

@@ -1,3 +1,4 @@
+@use './variables.scss';
 @use './mixins';
 
 .srOnly {
@@ -40,4 +41,24 @@
 	max-width: 100rem;
 	margin: 0 auto;
 	padding: 0 1.5rem;
+}
+
+.button {
+	padding: 0.75rem 2rem;
+
+	font-weight: 500;
+	color: variables.$lavenderWeb;
+
+	background-color: variables.$deepSpaceSparkle;
+	border-radius: 3rem;
+
+	transition: background-color 0.15s;
+	@media (min-width: 992px) {
+		&:hover {
+			background-color: variables.$eden;
+		}
+		&:active {
+			opacity: 0.5;
+		}
+	}
 }

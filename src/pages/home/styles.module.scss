@@ -1,7 +1,0 @@
-@use '../../styles/mixins';
-
-.home {
-	&__text {
-		@include mixins.largeFontSize();
-	}
-}

@@ -29,13 +29,11 @@ html {
 }
 
 body {
-	margin: 0;
-}
-
-#root {
 	@include mixins.baseFontSize();
 
 	overflow-x: hidden;
+	margin: 0;
+	background-color: variables.$lavenderWeb;
 }
 
 h1,
