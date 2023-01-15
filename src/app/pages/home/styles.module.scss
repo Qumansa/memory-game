@@ -11,6 +11,10 @@
 			text-indent: 5rem;
 		}
 
+		&_bold {
+			font-weight: 500;
+		}
+
 		&_big {
 			@include mixins.largeFontSize();
 		}

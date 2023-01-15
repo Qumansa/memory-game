@@ -1,11 +1,64 @@
+@use '../../../../../styles/variables.scss';
+
 .cards {
 	&__item {
+		cursor: pointer;
+
+		position: relative;
+
 		justify-self: center;
 
-		width: 100%;
 		width: 128px;
 		height: 230px;
 
-		background: url('./assets/img/card-back.png') center center/cover no-repeat;
+		transition: transform 0.3s;
+
+		&Back,
+		&Front {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			width: 100%;
+
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			border-radius: 0.7rem;
+			box-shadow: 0.4rem 0.4rem 0.7rem variables.$eden;
+
+			transition: 1s;
+		}
+
+		&Front {
+			transform: rotateY(180deg);
+		}
+
+		&Back {
+			transform: rotateY(360deg);
+		}
+
+		&_active {
+			transform: translateY(-1rem);
+
+			.cards__itemFront {
+				transform: rotateY(0);
+			}
+
+			.cards__itemBack {
+				transform: rotateY(180deg);
+			}
+		}
+
+		@media (min-width: 992px) {
+			&:hover {
+				transform: translateY(-1rem);
+			}
+		}
+	}
+
+	&__img {
+		width: 100%;
+		object-fit: cover;
+		border-radius: 0.7rem;
 	}
 }

@@ -12,7 +12,10 @@ export const Game = ({ difficulty }: GameProps) => {
 		<section className={styles.game}>
 			<div className={global.container}>
 				<h2 className={global.srOnly}>Игра</h2>
-				{/* <p className={styles.game__difficulty}>Уровень сложности: {difficulty}</p> */}
+				<div className={styles.game__info}>
+					<span className={styles.game__difficulty}>Уровень сложности: легкий</span>
+					<span className={styles.game__result}>Отгадано котиков: 0/12</span>
+				</div>
 				<ul className={styles.cards}>
 					<Card />
 					<Card />
