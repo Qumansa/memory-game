@@ -1,7 +1,8 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+
+import { Layout } from '../layout';
 import { Game, Home } from './pages';
 
-import global from '../styles/global.module.scss';
 import '../styles/main.scss';
 
 export const App = () => {
@@ -9,19 +10,19 @@ export const App = () => {
 		createRoutesFromElements(
 			<>
 				<Route
-					index
-					element={<Home />}
-				/>
-				<Route
-					path="/game"
-					element={<Game difficulty="test" />}
-				/>
+					path="/"
+					element={<Layout />}>
+					<Route
+						index
+						element={<Home />}
+					/>
+					<Route
+						path="/game"
+						element={<Game difficulty="test" />}
+					/>
+				</Route>
 			</>
 		)
 	);
-	return (
-		<main className={global.main}>
-			<RouterProvider router={router} />
-		</main>
-	);
+	return <RouterProvider router={router} />;
 };

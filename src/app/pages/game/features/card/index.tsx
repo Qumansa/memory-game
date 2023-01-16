@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './styles.module.scss';
 
 import cardBack from './assets/img/card-back.png';
-import cardFront from './assets/img/card-front.jpg';
+import cardFront from './assets/img/cats/cat-6.jpg';
 
 export const Card = () => {
 	const [isActive, setIsActive] = useState(false);

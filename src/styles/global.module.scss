@@ -18,13 +18,7 @@
 }
 
 .main {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	width: 100%;
-	min-height: 100vh;
-	padding: 2rem 0;
+	margin-top: 3rem;
 }
 
 .section {
@@ -49,16 +43,16 @@
 	font-weight: 500;
 	color: variables.$lavenderWeb;
 
-	background-color: variables.$deepSpaceSparkle;
+	background-color: variables.$surfieGreen;
 	border-radius: 3rem;
 
-	transition: background-color 0.15s;
+	transition: background-color 0.15s, opacity 0.15s;
 	@media (min-width: 992px) {
 		&:hover {
-			background-color: variables.$eden;
+			background-color: variables.$jungleGreen;
 		}
 		&:active {
-			opacity: 0.5;
+			opacity: 0.7;
 		}
 	}
 }
