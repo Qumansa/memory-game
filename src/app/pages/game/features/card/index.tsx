@@ -3,9 +3,12 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './styles.module.scss';
 
 import cardBack from './assets/img/card-back.png';
-import cardFront from './assets/img/cats/cat-6.jpg';
 
-export const Card = () => {
+interface CardProps {
+	src: string;
+}
+
+export const Card = ({ src }: CardProps) => {
 	const [isActive, setIsActive] = useState(false);
 
 	const toggleCard = () => {
@@ -19,8 +22,8 @@ export const Card = () => {
 			<div className={styles.cards__itemFront}>
 				<img
 					className={styles.cards__img}
-					src={cardFront}
-					alt=""
+					src={src}
+					alt="Котик"
 					loading="lazy"
 				/>
 			</div>

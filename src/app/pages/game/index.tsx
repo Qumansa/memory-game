@@ -1,6 +1,5 @@
-import { Card } from './features/card';
-
 import global from '../../../styles/global.module.scss';
+import { CardList } from './features/cardList';
 import styles from './styles.module.scss';
 
 interface GameProps {
@@ -16,20 +15,7 @@ export const Game = ({ difficulty }: GameProps) => {
 					<span className={styles.game__difficulty}>Уровень сложности: легкий</span>
 					<span className={styles.game__result}>Отгадано котиков: 0/12</span>
 				</div>
-				<ul className={styles.cards}>
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-				</ul>
+				<CardList />
 			</div>
 		</section>
 	);
