@@ -23,6 +23,8 @@ export const Card = ({ src }: CardProps) => {
 				<img
 					className={styles.cards__img}
 					src={src}
+					width="128px"
+					height="230px"
 					alt="Котик"
 					loading="lazy"
 				/>
@@ -32,6 +34,8 @@ export const Card = ({ src }: CardProps) => {
 					className={styles.cards__img}
 					src={cardBack}
 					alt="Рубашка карты"
+					width="128px"
+					height="230px"
 					loading="lazy"
 				/>
 			</div>

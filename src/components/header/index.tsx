@@ -13,6 +13,8 @@ export const Header = () => {
 				<img
 					className={styles.header__img}
 					src={logo}
+					width="220px"
+					height="141px"
 					alt="Логотип MATCH 2"
 				/>
 			</Link>
