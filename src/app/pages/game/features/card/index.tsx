@@ -1,4 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
+import { selectScore } from '../../../../../redux/score/selectors';
+import { increaseScore } from '../../../../../redux/score/slice';
 
 import styles from './styles.module.scss';
 
@@ -10,19 +15,27 @@ interface CardProps {
 
 export const Card = ({ src }: CardProps) => {
 	const [isActive, setIsActive] = useState(false);
+	// const score = useAppSelector(selectScore);
+	const dispatch = useAppDispatch();
+	const catRef = useRef(null);
 
-	const toggleCard = () => {
+	const checkCard = () => {
 		setIsActive((prev) => !prev);
+
+		setTimeout(() => {
+			// dispatch(increaseScore());
+		}, 1000);
 	};
 
 	return (
 		<li
 			className={isActive ? `${styles.cards__item} ${styles.cards__item_active}` : styles.cards__item}
-			onClick={toggleCard}>
+			onClick={checkCard}>
 			<div className={styles.cards__itemFront}>
 				<img
 					className={styles.cards__img}
 					src={src}
+					ref={catRef}
 					width="128px"
 					height="230px"
 					alt="Котик"
