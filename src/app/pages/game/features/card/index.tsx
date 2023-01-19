@@ -1,41 +1,49 @@
-import { useEffect, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
-
 import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
-import { selectScore } from '../../../../../redux/score/selectors';
-import { increaseScore } from '../../../../../redux/score/slice';
 
-import styles from './styles.module.scss';
+import { increaseAmountOfCatsOpened, updateAllCats } from '../../../../../redux/slices/cats';
+import { selectCats } from '../../../../../redux/slices/cats/selectors';
+
+import { CardProps } from './types';
 
 import cardBack from './assets/img/card-back.png';
 
-interface CardProps {
-	src: string;
-}
+import styles from './styles.module.scss';
 
-export const Card = ({ src }: CardProps) => {
-	const [isActive, setIsActive] = useState(false);
-	// const score = useAppSelector(selectScore);
+export const Card = ({ id, src, isActive, isFound }: CardProps) => {
 	const dispatch = useAppDispatch();
-	const catRef = useRef(null);
+	const cats = useAppSelector(selectCats);
 
 	const checkCard = () => {
-		setIsActive((prev) => !prev);
+		dispatch(
+			updateAllCats(
+				cats.map((cat) => {
+					if (cat.id === id) {
+						return { ...cat, isActive: true };
+					} else {
+						return cat;
+					}
+				})
+			)
+		);
 
-		setTimeout(() => {
-			// dispatch(increaseScore());
-		}, 1000);
+		dispatch(increaseAmountOfCatsOpened());
 	};
 
 	return (
 		<li
-			className={isActive ? `${styles.cards__item} ${styles.cards__item_active}` : styles.cards__item}
+			className={
+				isActive
+					? `${styles.cards__item} ${styles.cards__item_active}`
+					: isFound
+					? `${styles.cards__item} ${styles.cards__item_found}`
+					: styles.cards__item
+			}
 			onClick={checkCard}>
 			<div className={styles.cards__itemFront}>
 				<img
 					className={styles.cards__img}
 					src={src}
-					ref={catRef}
+					id={id}
 					width="128px"
 					height="230px"
 					alt="Котик"

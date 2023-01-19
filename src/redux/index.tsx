@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import score from './score/slice';
+import cats from './slices/cats';
+import score from './slices/score';
 
 export const store = configureStore({
 	reducer: {
 		score,
+		cats,
 	},
 	// devTools: process.env.NODE_ENV !== 'production',
 });

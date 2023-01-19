@@ -49,6 +49,15 @@
 			}
 		}
 
+		&_found {
+			visibility: hidden;
+
+			.cards__itemFront,
+			.cards__itemBack {
+				transition: 0s;
+			}
+		}
+
 		@media (min-width: 992px) {
 			&:hover {
 				transform: translateY(-1rem);

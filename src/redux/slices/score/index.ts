@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { IScore } from "./types";
+import { scoreSliceState } from "./types";
 
-const initialState: IScore = {
+const initialState: scoreSliceState = {
     score: 0
 };
 

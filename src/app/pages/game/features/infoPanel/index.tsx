@@ -1,5 +1,5 @@
 import { useAppSelector } from '../../../../../redux/hooks';
-import { selectScore } from '../../../../../redux/score/selectors';
+import { selectScore } from '../../../../../redux/slices/score/selectors';
 
 import styles from './styles.module.scss';
 
