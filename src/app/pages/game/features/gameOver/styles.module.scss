@@ -1,0 +1,17 @@
+@use '../../../../../styles/mixins.scss';
+
+.gameOver {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 10rem;
+	&__text {
+		@include mixins.largeFontSize();
+	}
+
+	&__link {
+		user-select: none;
+		align-self: center;
+		margin-top: 5rem;
+	}
+}

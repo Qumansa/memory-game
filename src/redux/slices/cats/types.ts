@@ -7,5 +7,6 @@ export type Cat = {
 
 export interface catsSliceState {
     amountOfCatsOpened: number;
+    areCatsDisabled: boolean;
     cats: Cat[];
 };

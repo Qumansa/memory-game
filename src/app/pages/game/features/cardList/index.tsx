@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
-
 import { resetAmountOfCatsOpened, updateAllCats } from '../../../../../redux/slices/cats';
 import { selectAmountOfCatsOpened, selectCats } from '../../../../../redux/slices/cats/selectors';
-import { increaseScore } from '../../../../../redux/slices/score';
+import { increaseScore, updateIsGameOver } from '../../../../../redux/slices/result';
+import { selectScore } from '../../../../../redux/slices/result/selectors';
 
 import { Card } from '../card';
 
@@ -15,6 +15,7 @@ export const CardList = () => {
 	const dispatch = useAppDispatch();
 	const cats = useAppSelector(selectCats);
 	const amountOfCatsOpened = useAppSelector(selectAmountOfCatsOpened);
+	const score = useAppSelector(selectScore);
 
 	useEffect(() => {
 		dispatch(updateAllCats(shuffleArray([...cats])));
@@ -23,7 +24,7 @@ export const CardList = () => {
 	useEffect(() => {
 		if (amountOfCatsOpened === 2) {
 			setTimeout(() => {
-				let checkedSrc;
+				let checkedSrc: string | null | undefined;
 				for (let i = 0; i < cats.length; i++) {
 					if (cats[i].isActive) {
 						if (!checkedSrc) {
@@ -41,7 +42,12 @@ export const CardList = () => {
 										})
 									)
 								);
+
 								dispatch(increaseScore());
+
+								if (score === 10) {
+									dispatch(updateIsGameOver(true));
+								}
 							} else {
 								dispatch(
 									updateAllCats(

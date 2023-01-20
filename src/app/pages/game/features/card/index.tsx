@@ -1,7 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
-
-import { increaseAmountOfCatsOpened, updateAllCats } from '../../../../../redux/slices/cats';
-import { selectCats } from '../../../../../redux/slices/cats/selectors';
+import { increaseAmountOfCatsOpened, updateAllCats, updateAreCatsDisabled } from '../../../../../redux/slices/cats';
+import { selectAreCatsDisabled, selectCats } from '../../../../../redux/slices/cats/selectors';
 
 import { CardProps } from './types';
 
@@ -12,8 +11,11 @@ import styles from './styles.module.scss';
 export const Card = ({ id, src, isActive, isFound }: CardProps) => {
 	const dispatch = useAppDispatch();
 	const cats = useAppSelector(selectCats);
+	const areCatsDisabled = useAppSelector(selectAreCatsDisabled);
 
 	const checkCard = () => {
+		dispatch(updateAreCatsDisabled(true));
+
 		dispatch(
 			updateAllCats(
 				cats.map((cat) => {
@@ -27,6 +29,10 @@ export const Card = ({ id, src, isActive, isFound }: CardProps) => {
 		);
 
 		dispatch(increaseAmountOfCatsOpened());
+
+		setTimeout(() => {
+			dispatch(updateAreCatsDisabled(false));
+		}, 1000);
 	};
 
 	return (
@@ -36,6 +42,8 @@ export const Card = ({ id, src, isActive, isFound }: CardProps) => {
 					? `${styles.cards__item} ${styles.cards__item_active}`
 					: isFound
 					? `${styles.cards__item} ${styles.cards__item_found}`
+					: areCatsDisabled
+					? `${styles.cards__item} ${styles.cards__item_disabled}`
 					: styles.cards__item
 			}
 			onClick={checkCard}>

@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import cats from './slices/cats';
-import score from './slices/score';
+import result from './slices/result';
 
 export const store = configureStore({
 	reducer: {
-		score,
+		result,
 		cats,
 	},
 	// devTools: process.env.NODE_ENV !== 'production',

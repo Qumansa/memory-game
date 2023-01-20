@@ -3,6 +3,7 @@
 .cards {
 	&__item {
 		cursor: pointer;
+		user-select: none;
 
 		position: relative;
 
@@ -12,7 +13,6 @@
 		height: 230px;
 
 		transition: transform 0.3s;
-
 		&Back,
 		&Front {
 			position: absolute;
@@ -56,6 +56,10 @@
 			.cards__itemBack {
 				transition: 0s;
 			}
+		}
+
+		&_disabled {
+			pointer-events: none;
 		}
 
 		@media (min-width: 992px) {

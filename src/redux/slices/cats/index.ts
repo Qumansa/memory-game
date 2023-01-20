@@ -12,6 +12,7 @@ import cat6 from './assets/img/cat-6.jpg';
 
 const initialState: catsSliceState = {
     amountOfCatsOpened: 0,
+    areCatsDisabled: false,
     cats: [
         {
             id: uuid(),
@@ -92,9 +93,6 @@ export const catsSlice = createSlice({
     name: 'cats',
     initialState,
     reducers: {
-        getCat(state, action: PayloadAction<string>) {
-            
-        },
         updateAllCats(state, action: PayloadAction<Cat[]>) {
             state.cats = action.payload;
         },
@@ -106,6 +104,10 @@ export const catsSlice = createSlice({
         resetAmountOfCatsOpened(state) {
             state.amountOfCatsOpened = 0;
         },
+
+        updateAreCatsDisabled(state, action: PayloadAction<boolean>) {
+            state.areCatsDisabled = action.payload;
+        },
     }
 });
 
@@ -116,5 +118,6 @@ export default reducer;
 export const {
     updateAllCats,
     increaseAmountOfCatsOpened,
-    resetAmountOfCatsOpened
+    resetAmountOfCatsOpened,
+    updateAreCatsDisabled
 } = actions;
