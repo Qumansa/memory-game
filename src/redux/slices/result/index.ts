@@ -14,6 +14,10 @@ const resultSlice = createSlice({
         increaseScore(state) {
             state.score += 2;
         },
+        resetGame(state) {
+            state.isGameOver = false,
+            state.score = 0;
+        },
         updateIsGameOver(state, action: PayloadAction<boolean>) {
             state.isGameOver = action.payload;
         }
@@ -26,5 +30,6 @@ export default reducer;
 
 export const {
     increaseScore,
+    resetGame,
     updateIsGameOver
 } = actions;

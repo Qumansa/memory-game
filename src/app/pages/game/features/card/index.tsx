@@ -35,17 +35,17 @@ export const Card = ({ id, src, isActive, isFound }: CardProps) => {
 		}, 1000);
 	};
 
+	const cardItemClassNames = isActive
+		? `${styles.cards__item} ${styles.cards__item_active}`
+		: isFound
+		? `${styles.cards__item} ${styles.cards__item_found}`
+		: areCatsDisabled
+		? `${styles.cards__item} ${styles.cards__item_disabled}`
+		: styles.cards__item;
+
 	return (
 		<li
-			className={
-				isActive
-					? `${styles.cards__item} ${styles.cards__item_active}`
-					: isFound
-					? `${styles.cards__item} ${styles.cards__item_found}`
-					: areCatsDisabled
-					? `${styles.cards__item} ${styles.cards__item_disabled}`
-					: styles.cards__item
-			}
+			className={cardItemClassNames}
 			onClick={checkCard}>
 			<div className={styles.cards__itemFront}>
 				<img

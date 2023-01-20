@@ -22,48 +22,51 @@ export const CardList = () => {
 	}, []);
 
 	useEffect(() => {
-		if (amountOfCatsOpened === 2) {
-			setTimeout(() => {
-				let checkedSrc: string | null | undefined;
-				for (let i = 0; i < cats.length; i++) {
-					if (cats[i].isActive) {
-						if (!checkedSrc) {
-							checkedSrc = cats[i].src;
-						} else {
-							if (checkedSrc === cats[i].src) {
-								dispatch(
-									updateAllCats(
-										cats.map((cat) => {
-											if (cat.isActive) {
-												return { ...cat, isActive: false, isFound: true };
-											} else {
-												return { ...cat, isActive: false };
-											}
-										})
-									)
-								);
+		if (amountOfCatsOpened !== 2) return;
 
-								dispatch(increaseScore());
+		const timerID = setTimeout(() => {
+			let checkedSrc: string | null | undefined;
 
-								if (score === 10) {
-									dispatch(updateIsGameOver(true));
-								}
-							} else {
-								dispatch(
-									updateAllCats(
-										cats.map((cat) => {
-											return { ...cat, isActive: false };
-										})
-									)
-								);
-							}
-						}
-					}
+			for (let i = 0; i < cats.length; i++) {
+				if (!cats[i].isActive) continue;
+
+				if (!checkedSrc) {
+					checkedSrc = cats[i].src;
+					continue;
 				}
 
-				dispatch(resetAmountOfCatsOpened());
-			}, 1000);
-		}
+				if (checkedSrc === cats[i].src) {
+					dispatch(
+						updateAllCats(
+							cats.map((cat) => {
+								if (cat.isActive) {
+									return { ...cat, isActive: false, isFound: true };
+								} else {
+									return { ...cat, isActive: false };
+								}
+							})
+						)
+					);
+
+					dispatch(increaseScore());
+
+					if (score === 10) dispatch(updateIsGameOver(true));
+					continue;
+				}
+
+				dispatch(
+					updateAllCats(
+						cats.map((cat) => {
+							return { ...cat, isActive: false };
+						})
+					)
+				);
+			}
+
+			dispatch(resetAmountOfCatsOpened());
+		}, 1000);
+
+		return () => clearTimeout(timerID);
 	}, [amountOfCatsOpened]);
 
 	return (
