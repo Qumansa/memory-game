@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Difficulty } from '../../../components/difficulty';
 
 import global from '../../../styles/global.module.scss';
 import styles from './styles.module.scss';
@@ -23,11 +24,14 @@ export const Home = () => {
 					Цель игры: найти всех котиков. &#128573;
 				</p>
 				<p className={`${styles.home__text} ${styles.home__text_center}`}>Желаем удачи!</p>
-				<Link
-					className={`${global.button} ${styles.home__link}`}
-					to={`/game`}>
-					Начать игру
-				</Link>
+				<div className={styles.home__buttons}>
+					<Difficulty />
+					<Link
+						className={`${global.button} ${styles.home__link}`}
+						to={`/game`}>
+						Начать игру
+					</Link>
+				</div>
 			</div>
 		</section>
 	);

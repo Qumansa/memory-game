@@ -30,7 +30,13 @@
 
 	&__link {
 		user-select: none;
-		align-self: center;
+		// align-self: center;
+	}
+
+	&__buttons {
+		display: flex;
+		column-gap: 1rem;
+		justify-content: center;
 		margin-top: 5rem;
 	}
 }

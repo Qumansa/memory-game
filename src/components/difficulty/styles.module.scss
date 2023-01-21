@@ -1,0 +1,30 @@
+@use '../../styles/variables.scss';
+
+.difficulty {
+	position: relative;
+
+	padding-right: 5rem;
+
+	background: url('./assets/img/arrow-down.svg') calc(100% - 1.2rem) center no-repeat;
+	background-color: variables.$surfieGreen;
+	background-size: 2.2rem;
+
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	&::after {
+		content: '';
+
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		display: block;
+
+		width: 20px;
+		height: 20px;
+	}
+	&:focus {
+		background-image: url('./assets/img/arrow-up.svg');
+	}
+}

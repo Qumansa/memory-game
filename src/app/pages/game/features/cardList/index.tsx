@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
 import { resetAmountOfCatsOpened, updateAllCats } from '../../../../../redux/slices/cats';
 import { selectAmountOfCatsOpened, selectCats } from '../../../../../redux/slices/cats/selectors';
-import { increaseScore, updateIsGameOver } from '../../../../../redux/slices/result';
-import { selectScore } from '../../../../../redux/slices/result/selectors';
+import { increaseScore, updateIsGameOver } from '../../../../../redux/slices/game';
+import { selectScore } from '../../../../../redux/slices/game/selectors';
 
 import { Card } from '../card';
 

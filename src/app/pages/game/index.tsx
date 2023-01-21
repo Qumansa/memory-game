@@ -1,7 +1,9 @@
 import { useAppSelector } from '../../../redux/hooks';
-import { selectIsGameOver } from '../../../redux/slices/result/selectors';
-import global from '../../../styles/global.module.scss';
+import { selectIsGameOver } from '../../../redux/slices/game/selectors';
+
 import { CardList, GameOver, InfoPanel } from './features';
+
+import global from '../../../styles/global.module.scss';
 import styles from './styles.module.scss';
 
 interface GameProps {

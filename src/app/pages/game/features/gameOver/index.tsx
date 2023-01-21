@@ -1,7 +1,10 @@
+import { useEffect } from 'react';
+
 import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
 import { updateAllCats } from '../../../../../redux/slices/cats';
 import { selectCats } from '../../../../../redux/slices/cats/selectors';
-import { resetGame } from '../../../../../redux/slices/result';
+import { resetGame } from '../../../../../redux/slices/game';
+
 import global from '../../../../../styles/global.module.scss';
 import styles from './styles.module.scss';
 
@@ -21,10 +24,16 @@ export const GameOver = () => {
 		);
 	};
 
+	useEffect(() => {
+		return () => {
+			reset();
+		};
+	}, []);
+
 	return (
 		<div className={styles.gameOver}>
 			<p className={styles.gameOver__text}>Поздравляем! Вы нашли всех котиков!!! &#128576;</p>
-			<p className={styles.gameOver__text}> Вы большой молодец!</p>
+			<p className={styles.gameOver__text}>Вы большой молодец!</p>
 			<button
 				className={`${global.button} ${styles.gameOver__link}`}
 				onClick={reset}>

@@ -56,7 +56,8 @@ ol,
 li,
 figure,
 blockquote,
-fieldset {
+fieldset,
+select {
 	margin: 0;
 	padding: 0;
 
@@ -87,6 +88,12 @@ img {
 button {
 	cursor: pointer;
 	background-color: transparent;
+	border: none;
+}
+
+select {
+	cursor: pointer;
+	font-family: inherit;
 	border: none;
 }
 

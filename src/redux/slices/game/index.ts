@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { resultSliceState } from "./types";
+import { gameSliceState } from "./types";
 
-const initialState: resultSliceState = {
+const initialState: gameSliceState = {
     isGameOver: false,
     score: 0
 };
 
 const resultSlice = createSlice({
-    name: 'result',
+    name: 'game',
     initialState,
     reducers: {
         increaseScore(state) {
