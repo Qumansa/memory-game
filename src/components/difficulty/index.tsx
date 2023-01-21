@@ -3,29 +3,29 @@ import { ChangeEvent } from 'react';
 import { useAppDispatch } from '../../redux/hooks';
 import { changeDifficulty } from '../../redux/slices/game';
 
+import { isValidDifficulty } from './utils/isValidDifficulty';
+
 import { DifficultyProps } from './types';
 
 import global from '../../styles/global.module.scss';
 import styles from './styles.module.scss';
 
-export const Difficulty = ({ classNames = '' }: DifficultyProps) => {
+export const Difficulty = ({ classNames }: DifficultyProps) => {
 	const dispatch = useAppDispatch();
 
 	const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
 		e.currentTarget.blur();
 
-		if (
-			e.currentTarget.value === 'Легкий' ||
-			e.currentTarget.value === 'Средний' ||
-			e.currentTarget.value === 'Сложный'
-		) {
+		if (isValidDifficulty(e.currentTarget.value)) {
 			dispatch(changeDifficulty(e.currentTarget.value));
 		}
 	};
 
+	const difficultyClassNames = classNames ? `${styles.difficulty} ${classNames}` : styles.cards__difficulty;
+
 	return (
 		<>
-			<div className={`${styles.difficulty} ${classNames}`}>
+			<div className={difficultyClassNames}>
 				<span className={styles.difficulty__label}>Выберите уровень сложности:</span>
 				<select
 					className={`${styles.difficulty__select} ${global.button}`}

@@ -1,3 +1,5 @@
+import { DifficultyType } from "../../../types/difficulty";
+
 export type CatType = {
     id: string;
     isActive: boolean;
@@ -16,6 +18,6 @@ export interface catsSliceState {
 };
 
 export interface IUpdateCats {
-    difficulty: 'Легкий' | 'Средний' | 'Сложный';
+    difficulty: DifficultyType;
     cats: CatType[];
 };

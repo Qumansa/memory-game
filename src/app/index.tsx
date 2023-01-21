@@ -18,7 +18,7 @@ export const App = () => {
 					/>
 					<Route
 						path="/game"
-						element={<Game difficulty="test" />}
+						element={<Game />}
 					/>
 				</Route>
 			</>

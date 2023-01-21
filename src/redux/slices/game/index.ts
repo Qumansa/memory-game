@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+import { DifficultyType } from "../../../types/difficulty";
 import { gameSliceState } from "./types";
 
 const initialState: gameSliceState = {
@@ -22,7 +23,7 @@ const resultSlice = createSlice({
         updateIsGameOver(state, action: PayloadAction<boolean>) {
             state.isGameOver = action.payload;
         },
-        changeDifficulty(state, action: PayloadAction<'Легкий' | 'Средний' | 'Сложный'>) {
+        changeDifficulty(state, action: PayloadAction<DifficultyType>) {
             state.difficulty = action.payload;
         },
     }
