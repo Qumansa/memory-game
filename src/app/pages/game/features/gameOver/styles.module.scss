@@ -7,11 +7,17 @@
 	padding-top: 10rem;
 	&__text {
 		@include mixins.largeFontSize();
+
+		text-align: center;
 	}
 
 	&__link {
 		user-select: none;
 		align-self: center;
 		margin-top: 5rem;
+	}
+
+	&__difficulty {
+		margin-top: 3rem;
 	}
 }

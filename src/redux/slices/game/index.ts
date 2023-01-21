@@ -4,7 +4,8 @@ import { gameSliceState } from "./types";
 
 const initialState: gameSliceState = {
     isGameOver: false,
-    score: 0
+    score: 0,
+    difficulty: 'Легкий'
 };
 
 const resultSlice = createSlice({
@@ -20,7 +21,10 @@ const resultSlice = createSlice({
         },
         updateIsGameOver(state, action: PayloadAction<boolean>) {
             state.isGameOver = action.payload;
-        }
+        },
+        changeDifficulty(state, action: PayloadAction<'Легкий' | 'Средний' | 'Сложный'>) {
+            state.difficulty = action.payload;
+        },
     }
 });
 
@@ -31,5 +35,6 @@ export default reducer;
 export const {
     increaseScore,
     resetGame,
-    updateIsGameOver
+    updateIsGameOver,
+    changeDifficulty
 } = actions;

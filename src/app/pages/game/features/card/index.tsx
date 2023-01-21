@@ -1,6 +1,8 @@
 import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
+
 import { increaseAmountOfCatsOpened, updateAllCats, updateAreCatsDisabled } from '../../../../../redux/slices/cats';
-import { selectAreCatsDisabled, selectCats } from '../../../../../redux/slices/cats/selectors';
+import { selectAreCatsDisabled } from '../../../../../redux/slices/cats/selectors';
+import { selectDifficulty } from '../../../../../redux/slices/game/selectors';
 
 import { CardProps } from './types';
 
@@ -10,22 +12,24 @@ import styles from './styles.module.scss';
 
 export const Card = ({ id, src, isActive, isFound }: CardProps) => {
 	const dispatch = useAppDispatch();
-	const cats = useAppSelector(selectCats);
+	const difficulty = useAppSelector(selectDifficulty);
+	const cats = useAppSelector((state) => state.cats.cats[difficulty]);
 	const areCatsDisabled = useAppSelector(selectAreCatsDisabled);
 
 	const checkCard = () => {
 		dispatch(updateAreCatsDisabled(true));
 
 		dispatch(
-			updateAllCats(
-				cats.map((cat) => {
+			updateAllCats({
+				difficulty,
+				cats: cats.map((cat) => {
 					if (cat.id === id) {
 						return { ...cat, isActive: true };
 					} else {
 						return cat;
 					}
-				})
-			)
+				}),
+			})
 		);
 
 		dispatch(increaseAmountOfCatsOpened());

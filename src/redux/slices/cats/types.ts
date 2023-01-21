@@ -1,4 +1,4 @@
-export type Cat = {
+export type CatType = {
     id: string;
     isActive: boolean;
     isFound: boolean;
@@ -8,5 +8,14 @@ export type Cat = {
 export interface catsSliceState {
     amountOfCatsOpened: number;
     areCatsDisabled: boolean;
-    cats: Cat[];
+    cats: {
+        'Легкий': CatType[],
+        'Средний': CatType[],
+        'Сложный': CatType[]
+    };
+};
+
+export interface IUpdateCats {
+    difficulty: 'Легкий' | 'Средний' | 'Сложный';
+    cats: CatType[];
 };

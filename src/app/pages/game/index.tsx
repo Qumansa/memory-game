@@ -6,11 +6,7 @@ import { CardList, GameOver, InfoPanel } from './features';
 import global from '../../../styles/global.module.scss';
 import styles from './styles.module.scss';
 
-interface GameProps {
-	difficulty: string;
-}
-
-export const Game = ({ difficulty }: GameProps) => {
+export const Game = () => {
 	const isGameOver = useAppSelector(selectIsGameOver);
 
 	return (

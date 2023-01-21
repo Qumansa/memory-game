@@ -24,14 +24,12 @@ export const Home = () => {
 					Цель игры: найти всех котиков. &#128573;
 				</p>
 				<p className={`${styles.home__text} ${styles.home__text_center}`}>Желаем удачи!</p>
-				<div className={styles.home__buttons}>
-					<Difficulty />
-					<Link
-						className={`${global.button} ${styles.home__link}`}
-						to={`/game`}>
-						Начать игру
-					</Link>
-				</div>
+				<Difficulty classNames={styles.home__difficulty} />
+				<Link
+					className={`${global.button} ${styles.home__link}`}
+					to={`/game`}>
+					Начать игру
+				</Link>
 			</div>
 		</section>
 	);

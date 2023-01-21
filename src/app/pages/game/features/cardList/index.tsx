@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
+
 import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
 import { resetAmountOfCatsOpened, updateAllCats } from '../../../../../redux/slices/cats';
 import { selectAmountOfCatsOpened, selectCats } from '../../../../../redux/slices/cats/selectors';
 import { increaseScore, updateIsGameOver } from '../../../../../redux/slices/game';
-import { selectScore } from '../../../../../redux/slices/game/selectors';
+import { selectDifficulty, selectScore } from '../../../../../redux/slices/game/selectors';
 
 import { Card } from '../card';
 
@@ -13,12 +14,18 @@ import styles from './styles.module.scss';
 
 export const CardList = () => {
 	const dispatch = useAppDispatch();
-	const cats = useAppSelector(selectCats);
-	const amountOfCatsOpened = useAppSelector(selectAmountOfCatsOpened);
+	const difficulty = useAppSelector(selectDifficulty);
+	const cats = useAppSelector((state) => state.cats.cats[difficulty]);
 	const score = useAppSelector(selectScore);
+	const amountOfCatsOpened = useAppSelector(selectAmountOfCatsOpened);
 
 	useEffect(() => {
-		dispatch(updateAllCats(shuffleArray([...cats])));
+		const obj = {
+			difficulty,
+			cats: shuffleArray([...cats]),
+		};
+
+		dispatch(updateAllCats(obj));
 	}, []);
 
 	useEffect(() => {
@@ -37,15 +44,16 @@ export const CardList = () => {
 
 				if (checkedSrc === cats[i].src) {
 					dispatch(
-						updateAllCats(
-							cats.map((cat) => {
+						updateAllCats({
+							difficulty,
+							cats: cats.map((cat) => {
 								if (cat.isActive) {
 									return { ...cat, isActive: false, isFound: true };
 								} else {
 									return { ...cat, isActive: false };
 								}
-							})
-						)
+							}),
+						})
 					);
 
 					dispatch(increaseScore());
@@ -55,11 +63,12 @@ export const CardList = () => {
 				}
 
 				dispatch(
-					updateAllCats(
-						cats.map((cat) => {
+					updateAllCats({
+						difficulty,
+						cats: cats.map((cat) => {
 							return { ...cat, isActive: false };
-						})
-					)
+						}),
+					})
 				);
 			}
 
