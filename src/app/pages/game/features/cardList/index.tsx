@@ -20,12 +20,12 @@ export const CardList = () => {
 	const amountOfCatsOpened = useAppSelector(selectAmountOfCatsOpened);
 
 	useEffect(() => {
-		const obj = {
-			difficulty,
-			cats: shuffleArray([...cats]),
-		};
-
-		dispatch(updateAllCats(obj));
+		dispatch(
+			updateAllCats({
+				difficulty,
+				cats: shuffleArray([...cats]),
+			})
+		);
 	}, []);
 
 	useEffect(() => {

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Difficulty } from '../../../../../components/difficulty';
 
@@ -14,6 +14,7 @@ export const GameOver = () => {
 	const dispatch = useAppDispatch();
 	const difficulty = useAppSelector(selectDifficulty);
 	const cats = useAppSelector((state) => state.cats.cats[difficulty]);
+	const [isMounted, setIsMounted] = useState(false);
 
 	const reset = () => {
 		dispatch(resetGame());
@@ -28,10 +29,14 @@ export const GameOver = () => {
 	};
 
 	useEffect(() => {
-		return () => {
-			reset();
-		};
-	}, []);
+		if (!isMounted) {
+			setIsMounted(true);
+		} else {
+			return () => {
+				reset();
+			};
+		}
+	}, [isMounted]);
 
 	return (
 		<div className={styles.gameOver}>
