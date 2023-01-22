@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 
-import { useAppDispatch } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { changeDifficulty } from '../../redux/slices/game';
 
 import { isValidDifficulty } from './utils/isValidDifficulty';
@@ -9,9 +9,11 @@ import { DifficultyProps } from './types';
 
 import global from '../../styles/global.module.scss';
 import styles from './styles.module.scss';
+import { selectDifficulty } from '../../redux/slices/game/selectors';
 
 export const Difficulty = ({ classNames }: DifficultyProps) => {
 	const dispatch = useAppDispatch();
+	const difficulty = useAppSelector(selectDifficulty);
 
 	const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
 		e.currentTarget.blur();
@@ -29,7 +31,7 @@ export const Difficulty = ({ classNames }: DifficultyProps) => {
 				<span className={styles.difficulty__label}>Выберите уровень сложности:</span>
 				<select
 					className={`${styles.difficulty__select} ${global.button}`}
-					defaultValue="Легкий"
+					defaultValue={difficulty}
 					onChange={handleChange}>
 					<option className={styles.difficulty__option}>Легкий</option>
 					<option className={styles.difficulty__option}>Средний</option>

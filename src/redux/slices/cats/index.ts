@@ -3,24 +3,27 @@ import uuid from 'react-uuid';
 
 import { catsSliceState, IUpdateCats } from "./types";
 
-import easyCat1 from './assets/img/easy/cat-1.jpg';
-import easyCat2 from './assets/img/easy/cat-2.jpg';
-import easyCat3 from './assets/img/easy/cat-3.jpg';
-import easyCat4 from './assets/img/easy/cat-4.jpg';
-import easyCat5 from './assets/img/easy/cat-5.jpg';
-import easyCat6 from './assets/img/easy/cat-6.jpg';
-// import hardCat1 from './assets/img/hard/cat-1.jpg';
-// import hardCat2 from './assets/img/hard/cat-2.jpg';
-// import hardCat3 from './assets/img/hard/cat-3.jpg';
-// import hardCat4 from './assets/img/hard/cat-4.jpg';
-// import hardCat5 from './assets/img/hard/cat-5.jpg';
-// import hardCat6 from './assets/img/hard/cat-6.jpg';
-// import mediumCat1 from './assets/img/medium/cat-1.jpg';
-// import mediumCat2 from './assets/img/medium/cat-2.jpg';
-// import mediumCat3 from './assets/img/medium/cat-3.jpg';
-// import mediumCat4 from './assets/img/medium/cat-4.jpg';
-// import mediumCat5 from './assets/img/medium/cat-5.jpg';
-// import mediumCat6 from './assets/img/medium/cat-6.jpg';
+import cat1 from './assets/img/easy/cat-1.jpg';
+import cat2 from './assets/img/easy/cat-2.jpg';
+import cat3 from './assets/img/easy/cat-3.jpg';
+import cat4 from './assets/img/easy/cat-4.jpg';
+import cat5 from './assets/img/easy/cat-5.jpg';
+import cat6 from './assets/img/easy/cat-6.jpg';
+import cat14 from './assets/img/hard/cat-14.jpg';
+import cat15 from './assets/img/hard/cat-15.jpg';
+import cat16 from './assets/img/hard/cat-16.jpg';
+import cat17 from './assets/img/hard/cat-17.jpg';
+import cat18 from './assets/img/hard/cat-18.jpg';
+import cat19 from './assets/img/hard/cat-19.jpg';
+import cat20 from './assets/img/hard/cat-20.jpg';
+import cat21 from './assets/img/hard/cat-21.jpg';
+import cat10 from './assets/img/medium/cat-10.jpg';
+import cat11 from './assets/img/medium/cat-11.jpg';
+import cat12 from './assets/img/medium/cat-12.jpg';
+import cat13 from './assets/img/medium/cat-13.jpg';
+import cat7 from './assets/img/medium/cat-7.jpg';
+import cat8 from './assets/img/medium/cat-8.jpg';
+import cat9 from './assets/img/medium/cat-9.jpg';
 
 const initialState: catsSliceState = {
     amountOfCatsOpened: 0,
@@ -31,73 +34,73 @@ const initialState: catsSliceState = {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat1,
+                src: cat1,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat2,
+                src: cat2,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat3,
+                src: cat3,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat4,
+                src: cat4,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat5,
+                src: cat5,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat6,
+                src: cat6,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat1,
+                src: cat1,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat2,
+                src: cat2,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat3,
+                src: cat3,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat4,
+                src: cat4,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat5,
+                src: cat5,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat6,
+                src: cat6,
             },
         ],
         'Средний': [
@@ -105,73 +108,85 @@ const initialState: catsSliceState = {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat1,
+                src: cat7,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat2,
+                src: cat8,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat3,
+                src: cat9,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat4,
+                src: cat10,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat5,
+                src: cat11,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat6,
+                src: cat12,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat1,
+                src: cat13,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat2,
+                src: cat7,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat3,
+                src: cat8,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat4,
+                src: cat9,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat5,
+                src: cat10,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat6,
+                src: cat11,
+            },
+            {
+                id: uuid(),
+                isActive: false,
+                isFound: false,
+                src: cat12,
+            },
+            {
+                id: uuid(),
+                isActive: false,
+                isFound: false,
+                src: cat13,
             },
         ],
         'Сложный': [
@@ -179,73 +194,97 @@ const initialState: catsSliceState = {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat1,
+                src: cat14,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat2,
+                src: cat15,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat3,
+                src: cat16,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat4,
+                src: cat17,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat5,
+                src: cat18,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat6,
+                src: cat19,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat1,
+                src: cat20,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat2,
+                src: cat21,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat3,
+                src: cat14,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat4,
+                src: cat15,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat5,
+                src: cat16,
             },
             {
                 id: uuid(),
                 isActive: false,
                 isFound: false,
-                src: easyCat6,
+                src: cat17,
+            },
+            {
+                id: uuid(),
+                isActive: false,
+                isFound: false,
+                src: cat18,
+            },
+            {
+                id: uuid(),
+                isActive: false,
+                isFound: false,
+                src: cat19,
+            },
+            {
+                id: uuid(),
+                isActive: false,
+                isFound: false,
+                src: cat20,
+            },
+            {
+                id: uuid(),
+                isActive: false,
+                isFound: false,
+                src: cat21,
             },
         ]
     },

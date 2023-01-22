@@ -58,7 +58,7 @@ export const CardList = () => {
 
 					dispatch(increaseScore());
 
-					if (score === 10) dispatch(updateIsGameOver(true));
+					if (score === cats.length - 2) dispatch(updateIsGameOver(true));
 					continue;
 				}
 
