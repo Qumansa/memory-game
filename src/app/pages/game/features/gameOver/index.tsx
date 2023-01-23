@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react';
-
-import { Difficulty } from '../../../../../components/difficulty';
+import { useMemo } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
 import { updateAllCats } from '../../../../../redux/slices/cats';
 import { resetGame } from '../../../../../redux/slices/game';
 import { selectDifficulty } from '../../../../../redux/slices/game/selectors';
+import { resetTimer } from '../../../../../redux/slices/timer';
+
+import { Difficulty } from '../../../../../components/difficulty';
 
 import global from '../../../../../styles/global.module.scss';
 import styles from './styles.module.scss';
@@ -14,34 +15,40 @@ export const GameOver = () => {
 	const dispatch = useAppDispatch();
 	const difficulty = useAppSelector(selectDifficulty);
 	const cats = useAppSelector((state) => state.cats.cats[difficulty]);
-	const [isMounted, setIsMounted] = useState(false);
+	const seconds = useAppSelector((state) => state.timer.value[difficulty]);
 
 	const reset = () => {
 		dispatch(resetGame());
+		dispatch(resetTimer());
 		dispatch(
 			updateAllCats({
 				difficulty,
-				cats: cats.map((cat) => {
-					return { ...cat, isFound: false };
-				}),
+				cats: cats.map((cat) => ({ ...cat, isActive: false, isFound: false })),
 			})
 		);
 	};
 
-	useEffect(() => {
-		if (!isMounted) {
-			setIsMounted(true);
-		} else {
-			return () => {
-				reset();
-			};
-		}
-	}, [isMounted]);
+	const text = useMemo(() => {
+		return seconds > 0 ? (
+			<>
+				<p className={`${styles.gameOver__text} ${styles.gameOver__text_big}`}>
+					Поздравляем! Вы нашли всех котиков!!! &#128576;
+				</p>
+				<p className={`${styles.gameOver__text} ${styles.gameOver__text_big}`}>Вы большой молодец!</p>
+			</>
+		) : (
+			<>
+				<p className={`${styles.gameOver__text} ${styles.gameOver__text_big}`}>
+					К сожалению, Вам не удалось найти всех котиков за отведённое время. &#128575;
+				</p>
+				<p className={`${styles.gameOver__text} ${styles.gameOver__text_big}`}>Попробуйте ещё раз!!!</p>
+			</>
+		);
+	}, []);
 
 	return (
 		<div className={styles.gameOver}>
-			<p className={styles.gameOver__text}>Поздравляем! Вы нашли всех котиков!!! &#128576;</p>
-			<p className={styles.gameOver__text}>Вы большой молодец!</p>
+			{text}
 			<Difficulty classNames={styles.gameOver__difficulty} />
 			<button
 				className={`${global.button} ${styles.gameOver__link}`}

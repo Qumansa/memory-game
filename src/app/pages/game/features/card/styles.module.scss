@@ -38,6 +38,7 @@
 		}
 
 		&_active {
+			pointer-events: none;
 			transform: translateY(-1rem);
 
 			.cards__itemFront {

@@ -1,19 +1,37 @@
+import { useMemo } from 'react';
+
 import { useAppSelector } from '../../../../../redux/hooks';
-import { selectDifficulty, selectScore } from '../../../../../redux/slices/game/selectors';
+import { selectDifficulty, selectIsGameOver, selectScore } from '../../../../../redux/slices/game/selectors';
+
+import { Timer } from '../timer';
 
 import styles from './styles.module.scss';
 
 export const InfoPanel = () => {
 	const score = useAppSelector(selectScore);
 	const difficulty = useAppSelector(selectDifficulty);
+	const isGameOver = useAppSelector(selectIsGameOver);
+	const seconds = useAppSelector((state) => state.timer.value[difficulty]);
 	const totalCats = useAppSelector((state) => state.cats.cats[difficulty]).length;
+
 	const transformedDifficulty = difficulty.toLowerCase();
+
+	const memoizedDifficulty = useMemo(() => difficulty.toLowerCase(), [isGameOver]);
+
+	const amountOfCatsGuessed =
+		isGameOver && seconds > 0 && memoizedDifficulty === transformedDifficulty
+			? ' все!'
+			: memoizedDifficulty === transformedDifficulty
+			? ` ${score}/${totalCats}`
+			: ` 0/${totalCats}`;
 
 	return (
 		<div className={styles.game__info}>
-			<span className={styles.game__difficulty}>Уровень сложности: {transformedDifficulty}</span>
-			<span className={styles.game__result}>
-				Отгадано котиков: {score}/{totalCats}
+			<span className={styles.game__text}>Уровень сложности: {transformedDifficulty}</span>
+			{difficulty !== 'Легкий' && <Timer />}
+			<span className={styles.game__text}>
+				Отгадано котиков:
+				{amountOfCatsGuessed}
 			</span>
 		</div>
 	);
