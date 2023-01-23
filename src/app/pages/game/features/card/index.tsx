@@ -1,3 +1,5 @@
+import { KeyboardEvent } from 'react';
+
 import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
 
 import { increaseAmountOfCatsOpened, updateAllCats, updateAreCatsDisabled } from '../../../../../redux/slices/cats';
@@ -44,6 +46,10 @@ export const Card = ({ id, src, isActive, isFound }: CardProps) => {
 		}, 1000);
 	};
 
+	const handleKeyDown = (e: KeyboardEvent<HTMLLIElement>) => {
+		if (e.key === 'Enter' || e.key === ' ') checkCard();
+	};
+
 	const cardItemClassNames = isActive
 		? `${styles.cards__item} ${styles.cards__item_active}`
 		: isFound
@@ -55,7 +61,9 @@ export const Card = ({ id, src, isActive, isFound }: CardProps) => {
 	return (
 		<li
 			className={cardItemClassNames}
-			onClick={checkCard}>
+			onClick={checkCard}
+			tabIndex={0}
+			onKeyDown={(e) => handleKeyDown(e)}>
 			<div className={styles.cards__itemFront}>
 				<img
 					className={styles.cards__img}

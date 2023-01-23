@@ -24,7 +24,8 @@ export const CardList = () => {
 	const endGame = () => {
 		dispatch(toggleTimer(false));
 		dispatch(updateIsGameOver(true));
-		dispatch(resetAmountOfCatsOpened());
+
+		if (amountOfCatsOpened > 0) dispatch(resetAmountOfCatsOpened());
 	};
 
 	useEffect(() => {
