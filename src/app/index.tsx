@@ -1,7 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 
 import { Layout } from '../layout';
-import { Game, Home } from './pages';
+import { Game, Home, Page404 } from './pages';
 
 import '../styles/main.scss';
 
@@ -19,6 +19,10 @@ export const App = () => {
 					<Route
 						path="/game"
 						element={<Game />}
+					/>
+					<Route
+						path="*"
+						element={<Page404 />}
 					/>
 				</Route>
 			</>

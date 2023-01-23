@@ -29,10 +29,7 @@ export const InfoPanel = () => {
 		<div className={styles.game__info}>
 			<span className={styles.game__text}>Уровень сложности: {transformedDifficulty}</span>
 			{difficulty !== 'Легкий' && <Timer />}
-			<span className={styles.game__text}>
-				Отгадано котиков:
-				{amountOfCatsGuessed}
-			</span>
+			<span className={styles.game__text}>Отгадано котиков: {amountOfCatsGuessed}</span>
 		</div>
 	);
 };
