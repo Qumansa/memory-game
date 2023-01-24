@@ -67,8 +67,6 @@ export const CardList = () => {
 
 					dispatch(increaseScore());
 
-					if (score === cats.length - 2) endGame();
-
 					continue;
 				}
 
@@ -85,6 +83,16 @@ export const CardList = () => {
 
 		return () => clearTimeout(timerID);
 	}, [amountOfCatsOpened]);
+
+	useEffect(() => {
+		if (score !== cats.length) return;
+
+		const timerID = setTimeout(() => {
+			endGame();
+		}, 800);
+
+		return () => clearTimeout(timerID);
+	}, [score]);
 
 	useEffect(() => {
 		if (seconds === 0) endGame();
