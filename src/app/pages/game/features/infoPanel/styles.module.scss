@@ -1,9 +1,13 @@
 .game {
 	&__info {
 		display: flex;
-		column-gap: 2rem;
+		gap: 2rem;
 		align-items: center;
 		justify-content: space-between;
+		@media (max-width: 600px) {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
 	}
 
 	&__text {

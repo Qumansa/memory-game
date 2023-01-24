@@ -17,18 +17,8 @@
 	border: 0;
 }
 
-.main {
-	margin-top: 3rem;
-}
-
 .section {
-	padding: 10rem 0;
-	&__title {
-		@include mixins.largeFontSize();
-
-		font-weight: 700;
-		text-align: center;
-	}
+	padding: 3rem 0;
 }
 
 .container {

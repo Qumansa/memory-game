@@ -6,12 +6,12 @@ import styles from './styles.module.scss';
 
 export const Home = () => {
 	return (
-		<section className={styles.home}>
-			<div className={`${global.container} ${styles.home__container}`}>
+		<section className={global.section}>
+			<div className={`${styles.home__container} ${global.container}`}>
 				<h2 className={global.srOnly}>Старт</h2>
 				<p
 					className={`${styles.home__text} ${styles.home__text_big} ${styles.home__text_center} ${styles.home__text_bold}`}>
-					Добро пожаловать в игру "MATCH 2"!
+					Добро пожаловать в игру "MATCH&nbsp;2"!
 				</p>
 				<p className={`${styles.home__text} ${styles.home__text_withIndent}`}>
 					В этой игре Вы сможете потренировать свою память и полюбоваться прекрасными животными. Правила очень

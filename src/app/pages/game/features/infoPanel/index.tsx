@@ -15,15 +15,14 @@ export const InfoPanel = () => {
 	const totalCats = useAppSelector((state) => state.cats.cats[difficulty]).length;
 
 	const transformedDifficulty = difficulty.toLowerCase();
-
-	const memoizedDifficulty = useMemo(() => difficulty.toLowerCase(), [isGameOver]);
+	const memoizedDifficulty = useMemo(() => difficulty, [isGameOver]);
 
 	const amountOfCatsGuessed =
-		isGameOver && seconds > 0 && memoizedDifficulty === transformedDifficulty
-			? ' все!'
-			: memoizedDifficulty === transformedDifficulty
-			? ` ${score}/${totalCats}`
-			: ` 0/${totalCats}`;
+		isGameOver && seconds > 0 && memoizedDifficulty === difficulty
+			? 'все!'
+			: memoizedDifficulty === difficulty
+			? `${score}/${totalCats}`
+			: `0/${totalCats}`;
 
 	return (
 		<div className={styles.game__info}>

@@ -8,6 +8,7 @@ export const Layout = () => {
 		<>
 			<Header />
 			<main className={global.main}>
+				<h1 className={global.srOnly}>MATCH&nbsp;2. Найдите одинаковые изображения!</h1>
 				<Outlet />
 			</main>
 		</>

@@ -2,8 +2,14 @@
 
 .difficulty {
 	display: flex;
+	flex-wrap: wrap;
+	row-gap: 2rem;
 	column-gap: 1rem;
 	align-items: center;
+	justify-content: center;
+	&__label {
+		text-align: center;
+	}
 	&__select {
 		position: relative;
 
