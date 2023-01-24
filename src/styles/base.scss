@@ -41,21 +41,11 @@ body {
 
 h1,
 h2,
-h3,
-h4,
-h5,
-h6,
 p,
-b,
 span,
 button,
-time,
 ul,
-ol,
 li,
-figure,
-blockquote,
-fieldset,
 select {
 	margin: 0;
 	padding: 0;
@@ -73,8 +63,7 @@ a {
 	text-decoration: none;
 }
 
-ul,
-ol {
+ul {
 	list-style-type: none;
 }
 
@@ -96,21 +85,3 @@ select {
 	font-family: inherit;
 	border: none;
 }
-
-fieldset {
-	border: none;
-}
-
-address {
-	font-weight: 500;
-}
-
-time {
-	display: inline-block;
-}
-
-picture {
-	display: flex;
-}
-
-// @import 'media/_base-media'
