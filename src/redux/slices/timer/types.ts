@@ -3,13 +3,13 @@ import { DifficultyType } from "../../../types/difficulty";
 export interface timerSliceState {
     isActive: boolean;
     value: {
-        'Легкий': number,
+        'Легкий': null,
         'Средний': number,
         'Сложный': number
     },
 }
 
 export interface IUpdateTimer {
-    difficulty: DifficultyType;
+    difficulty: Exclude<DifficultyType, 'Легкий'>;
     value: number;
 };

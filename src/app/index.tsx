@@ -11,7 +11,8 @@ export const App = () => {
 			<>
 				<Route
 					path="/"
-					element={<Layout />}>
+					element={<Layout />}
+					errorElement={<Page404 />}>
 					<Route
 						index
 						element={<Home />}

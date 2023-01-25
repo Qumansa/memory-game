@@ -29,7 +29,7 @@ export const GameOver = () => {
 	};
 
 	const text = useMemo(() => {
-		return seconds > 0 ? (
+		return (seconds && seconds > 0) || seconds === null ? (
 			<>
 				<p className={`${styles.gameOver__text} ${styles.gameOver__text_big}`}>
 					Поздравляем! Вы нашли всех котиков!!! &#128576;

@@ -9,13 +9,12 @@ import styles from './styles.module.scss';
 
 export const Timer = () => {
 	const dispatch = useAppDispatch();
-	const difficulty = useAppSelector(selectDifficulty);
 	const isTimerActive = useAppSelector(selectIsTimerActive);
+	const difficulty = useAppSelector(selectDifficulty);
 	const seconds = useAppSelector((state) => state.timer.value[difficulty]);
 
 	useEffect(() => {
-		if (!isTimerActive) return;
-		if (seconds < 1) return;
+		if (!isTimerActive || (seconds && seconds < 1) || seconds === null || difficulty === 'Легкий') return;
 
 		const timer = setTimeout(() => {
 			dispatch(
@@ -29,18 +28,18 @@ export const Timer = () => {
 		return () => clearTimeout(timer);
 	}, [seconds, isTimerActive]);
 
-	const transformedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+	const transformedSeconds = seconds !== null && seconds < 10 ? `0${seconds}` : seconds;
 
 	const valueClassNames =
-		seconds <= 10 && seconds > 0 && isTimerActive
+		isTimerActive && seconds && seconds <= 10 && seconds > 0
 			? `${styles.timer__value} ${styles.timer__value_danger}`
-			: seconds === 0 && isTimerActive
+			: isTimerActive && seconds === 0
 			? `${styles.timer__value} ${styles.timer__value_stop}`
 			: styles.timer__value;
 
 	return (
 		<span className={styles.timer}>
-			Осталось времени: <span className={valueClassNames}>{transformedSeconds}</span> сек.
+			Осталось времени: <span className={valueClassNames}>{transformedSeconds}</span>&nbsp;сек.
 		</span>
 	);
 };

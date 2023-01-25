@@ -5,7 +5,7 @@ import { IUpdateTimer, timerSliceState } from "./types";
 const initialState: timerSliceState = {
     isActive: false,
     value: {
-        'Легкий': 60,
+        'Легкий': null,
         'Средний': 40,
         'Сложный': 50
     },
@@ -23,7 +23,7 @@ const timerSlice = createSlice({
         },
         resetTimer(state) {
             state.value = {
-                'Легкий': 60,
+                'Легкий': null,
                 'Средний': 40,
                 'Сложный': 50
             };

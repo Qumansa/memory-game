@@ -1,0 +1,29 @@
+@use '../../../styles/mixins.scss';
+
+.page404 {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__text {
+		@include mixins.largeFontSize();
+
+		text-align: center;
+	}
+
+	&__img {
+		display: block;
+
+		width: 100%;
+		max-width: 50rem;
+		max-height: 50rem;
+		margin: 0 auto;
+	}
+
+	&__link {
+		user-select: none;
+		align-self: center;
+	}
+}
