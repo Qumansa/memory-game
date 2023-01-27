@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
-import { selectDifficulty } from '../../../../../redux/slices/game/selectors';
-import { updateTimerValue } from '../../../../../redux/slices/timer';
-import { selectIsTimerActive } from '../../../../../redux/slices/timer/selectors';
+import { useAppDispatch, useAppSelector } from '../../../../../../redux/hooks';
+import { selectDifficulty } from '../../../../../../redux/slices/game/selectors';
+import { updateTimerValue } from '../../../../../../redux/slices/timer';
+import { selectIsTimerActive } from '../../../../../../redux/slices/timer/selectors';
 
 import styles from './styles.module.scss';
 

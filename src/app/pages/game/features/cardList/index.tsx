@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
-import { resetAmountOfCatsOpened, updateAllCats } from '../../../../../redux/slices/cats';
-import { selectAmountOfCatsOpened } from '../../../../../redux/slices/cats/selectors';
-import { increaseScore, updateIsGameOver } from '../../../../../redux/slices/game';
-import { selectDifficulty, selectScore } from '../../../../../redux/slices/game/selectors';
-import { toggleTimer } from '../../../../../redux/slices/timer';
+import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
+import { resetAmountOfCatsOpened, updateAllCats } from '../../../../redux/slices/cats';
+import { selectAmountOfCatsOpened } from '../../../../redux/slices/cats/selectors';
+import { increaseScore, updateIsGameOver } from '../../../../redux/slices/game';
+import { selectDifficulty, selectScore } from '../../../../redux/slices/game/selectors';
+import { toggleTimer } from '../../../../redux/slices/timer';
 
-import { Card } from '../card';
+import { Card } from './features/card';
 
 import { shuffleArray } from './utils/shuffleArray';
 

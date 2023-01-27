@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 
-import { useAppSelector } from '../../../../../redux/hooks';
-import { selectDifficulty, selectIsGameOver, selectScore } from '../../../../../redux/slices/game/selectors';
+import { useAppSelector } from '../../../../redux/hooks';
+import { selectDifficulty, selectIsGameOver, selectScore } from '../../../../redux/slices/game/selectors';
 
-import { Timer } from '../timer';
+import { Timer } from './features/timer';
 
 import styles from './styles.module.scss';
 

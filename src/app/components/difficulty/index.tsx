@@ -2,6 +2,7 @@ import { ChangeEvent } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { changeDifficulty } from '../../redux/slices/game';
+import { selectDifficulty } from '../../redux/slices/game/selectors';
 
 import { isValidDifficulty } from './utils/isValidDifficulty';
 
@@ -9,7 +10,6 @@ import { DifficultyProps } from './types';
 
 import global from '../../styles/global.module.scss';
 import styles from './styles.module.scss';
-import { selectDifficulty } from '../../redux/slices/game/selectors';
 
 export const Difficulty = ({ classNames }: DifficultyProps) => {
 	const dispatch = useAppDispatch();

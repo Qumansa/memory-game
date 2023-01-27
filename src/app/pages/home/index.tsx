@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Difficulty } from '../../../components/difficulty';
+import { Difficulty } from '../../components/difficulty';
 
-import global from '../../../styles/global.module.scss';
+import global from '../../styles/global.module.scss';
 import styles from './styles.module.scss';
 
 export const Home = () => {

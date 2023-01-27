@@ -1,12 +1,11 @@
 import { KeyboardEvent } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
-
-import { increaseAmountOfCatsOpened, updateAllCats, updateAreCatsDisabled } from '../../../../../redux/slices/cats';
-import { selectAreCatsDisabled } from '../../../../../redux/slices/cats/selectors';
-import { selectDifficulty } from '../../../../../redux/slices/game/selectors';
-import { toggleTimer } from '../../../../../redux/slices/timer';
-import { selectIsTimerActive } from '../../../../../redux/slices/timer/selectors';
+import { useAppDispatch, useAppSelector } from '../../../../../../redux/hooks';
+import { increaseAmountOfCatsOpened, updateAllCats, updateAreCatsDisabled } from '../../../../../../redux/slices/cats';
+import { selectAreCatsDisabled } from '../../../../../../redux/slices/cats/selectors';
+import { selectDifficulty } from '../../../../../../redux/slices/game/selectors';
+import { toggleTimer } from '../../../../../../redux/slices/timer';
+import { selectIsTimerActive } from '../../../../../../redux/slices/timer/selectors';
 
 import { CardProps } from './types';
 

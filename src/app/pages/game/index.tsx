@@ -1,9 +1,9 @@
-import { useAppSelector } from '../../../redux/hooks';
-import { selectIsGameOver } from '../../../redux/slices/game/selectors';
+import { useAppSelector } from '../../redux/hooks';
+import { selectIsGameOver } from '../../redux/slices/game/selectors';
 
 import { CardList, GameOver, InfoPanel } from './features';
 
-import global from '../../../styles/global.module.scss';
+import global from '../../styles/global.module.scss';
 import styles from './styles.module.scss';
 
 export const Game = () => {

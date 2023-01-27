@@ -1,14 +1,14 @@
 import { useMemo } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
-import { updateAllCats } from '../../../../../redux/slices/cats';
-import { resetGame } from '../../../../../redux/slices/game';
-import { selectDifficulty } from '../../../../../redux/slices/game/selectors';
-import { resetTimer } from '../../../../../redux/slices/timer';
+import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
+import { updateAllCats } from '../../../../redux/slices/cats';
+import { resetGame } from '../../../../redux/slices/game';
+import { selectDifficulty } from '../../../../redux/slices/game/selectors';
+import { resetTimer } from '../../../../redux/slices/timer';
 
-import { Difficulty } from '../../../../../components/difficulty';
+import { Difficulty } from '../../../../components/difficulty';
 
-import global from '../../../../../styles/global.module.scss';
+import global from '../../../../styles/global.module.scss';
 import styles from './styles.module.scss';
 
 export const GameOver = () => {

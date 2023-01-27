@@ -1,9 +1,9 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 
-import { Layout } from '../layout';
+import { Layout } from './layout';
 import { Game, Home, Page404 } from './pages';
 
-import '../styles/main.scss';
+import './styles/main.scss';
 
 export const App = () => {
 	const router = createBrowserRouter(
